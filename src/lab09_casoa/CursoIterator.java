@@ -1,13 +1,36 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//BazanEspinoza
 package lab09_casoa;
 
 /**
  *
  * @author s
  */
-public class CursoIterator {
-    
+public class CursoIterator implements Iterator {
+    private String[] materias;
+    private int posicion;
+
+    public CursoIterator(String[] materias, int posicion) {
+        this.materias = materias;
+        this.posicion = 0;
+    }
+
+    @Override
+    public void first() {
+        posicion = 0;
+    }
+
+    @Override
+    public String next() {
+        return materias[posicion++];
+    }
+
+    @Override
+    public String currentItem() {
+        return materias[posicion];
+    }
+
+    @Override
+    public boolean hasNext() {
+        return posicion < materias.length;
+    }
 }
