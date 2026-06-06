@@ -1,14 +1,20 @@
+//BazanEspinoza
 package lab09_casoa;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 /**
  *
  * @author s
  */
-public class Ciencias {
-    
+public class Ciencias implements CursosInterface {
+    private String[] materias;
+
+    public Ciencias() {
+        materias = new String[]{"Fisica", "Quimica", "Biologia", "Matematica"};
+    }
+
+    @Override
+    public Iterator crearIterator() {
+        return new CursoIterator(materias);
+    }
 }
