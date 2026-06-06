@@ -9,7 +9,7 @@ public class CursoIterator implements Iterator {
     private String[] materias;
     private int posicion;
 
-    public CursoIterator(String[] materias, int posicion) {
+    public CursoIterator(String[] materias) {
         this.materias = materias;
         this.posicion = 0;
     }
