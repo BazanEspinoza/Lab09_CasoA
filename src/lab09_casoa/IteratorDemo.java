@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+//BazanEspinoza
 package lab09_casoa;
 
 /**
@@ -10,11 +7,31 @@ package lab09_casoa;
  */
 public class IteratorDemo {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    static void mostrarCursos(String titulo, CursosInterface col) {
+        System.out.println(titulo);
+        Iterator it = col.crearIterator();
+        it.first();
+        while (it.hasNext()) System.out.println(it.next());
     }
-    
+
+    public static void main(String[] args) {
+        System.out.println("Iterator Pattern Demo\n");
+
+        // 1 solo Arte
+        Arte arte = new Arte();
+        mostrarCursos("Los cursos de arte son los siguientes:", arte);
+        Iterator it = arte.crearIterator();
+        it.first();
+        System.out.println("Actualmente estoy apuntando a: " + it.currentItem());
+
+        // 2 Arte y Ciencias
+        System.out.println();
+        mostrarCursos("Los cursos de arte son los siguientes:", new Arte());
+        mostrarCursos("Los cursos de ciencias son los siguientes:", new Ciencias());
+
+        // 3 con nodos enlazados
+        System.out.println();
+        mostrarCursos("[Linked] Cursos de arte:", new ArteLinked());
+        mostrarCursos("[Linked] Cursos de ciencias:", new CienciasLinked());
+    }
 }
